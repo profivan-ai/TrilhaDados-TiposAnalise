@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aulas Excel Dash</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #031d37;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    nav {
+      width: 250px;
+      background-color: #34495e;
+      color: white;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    nav h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0.5rem 0;
+    }
+
+    nav ul li button {
+      width: 100%;
+      background: none;
+      border: none;
+      color: white;
+      text-align: left;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.3rem 0.5rem;
+      transition: background 0.3s;
+    }
+
+    nav ul li button:hover {
+      background-color: #2c3e50;
+    }
+
+    .content {
+      flex: 1;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    .video-frame {
+      width: 80%;
+      height: 500px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .exercise-box {
+      background-color: #ecf0f1;
+      padding: 1rem;
+      margin: 1rem;
+      border-left: 4px solid #3498db;
+    }
+
+    nav ul li button.active {
+      background-color: #1abc9c;
+    }
+
+
+    @media (max-width: 768px) {
+      nav {
+        width: 100%;
+      }
+
+      .content {
+        width: 100%;
+      }
+
+      .video-frame {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Aulas Excel Dash
+  </header>
+
+  <main>
+    <nav>
+      <h2>Vídeos da Playlist</h2>
+      <ul>
+        <li><button onclick="loadVideo('ZYCBFwdekwM', event)">1. O que e Analise de Dados</button></li>
+        <li><button onclick="loadVideo('nWyEBlwfFSI', event)">2. Analise Descritiva </button></li>
+        <li><button onclick="loadVideo('1nmn6sWFF8g', event)">3. Analise Diagnostica </button></li>
+        <li><button onclick="loadVideo('SpfCdhGk_F4', event)">4. Analise Exploratoria </button></li>
+        <li><button onclick="loadVideo('l7uLrOFmsKc', event)">5. Analise Preditiva </button></li>
+        <li><button onclick="loadVideo('8MgfISHo2OM', event)">6. Analise Prescritiva </button></li>
+        
+
+      </ul>
+    </nav>
+
+    <div class="content">
+      <iframe id="videoFrame" class="video-frame" src="https://www.youtube.com/embed/ZYCBFwdekwM" allowfullscreen></iframe>
+
+      <div class="exercise-box">
+        <h3>Exercícios sugeridos</h3>
+        <ul>
+          <li>Em BREVE ...</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+  function loadVideo(videoId) {
+  const iframe = document.getElementById('videoFrame');
+  iframe.src = 'https://www.youtube.com/embed/' + videoId;
+
+  // Remove classe ativa de todos os botões
+  document.querySelectorAll('nav ul li button').forEach(btn => btn.classList.remove('active'));
+
+  // Adiciona classe ativa ao botão clicado
+  event.target.classList.add('active');
+}
+  </script>
+</body>
+</html>
+
